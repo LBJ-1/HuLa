@@ -10,6 +10,7 @@
     "devUrl": "http://127.0.0.1:6130"
   },
   "bundle": {
+    "targets": ["dmg", "app", "msi", "deb"],
     "category": "SocialNetworking",
     "copyright": "HuLaSpark",
     "licenseFile": "./copyright/License.txt",
@@ -17,7 +18,7 @@
       "tray"
     ],
     "createUpdaterArtifacts": true,
-    "active": false,
+    "active": true,
     "icon": [],
     "windows": {},
     "macOS": {}
