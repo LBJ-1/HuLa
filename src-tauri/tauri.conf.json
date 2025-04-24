@@ -16,7 +16,7 @@
     "resources": [
       "tray"
     ],
-    "createUpdaterArtifacts": true,
+    "createUpdaterArtifacts": false,
     "active": true,
     "icon": [],
     "windows": {},
