@@ -17,7 +17,7 @@
       "tray"
     ],
     "createUpdaterArtifacts": true,
-    "active": true,
+    "active": false,
     "icon": [],
     "windows": {},
     "macOS": {}
@@ -37,7 +37,7 @@
   },
   "plugins": {
     "updater": {
-      "active": true,
+      "active": false,
       "windows": {
         "installMode": "passive"
       },
