@@ -13,7 +13,7 @@
     "resources": [
       "tray"
     ],
-    "active": false,
+    "active": true,
     "targets": [
       "app",
       "dmg"
