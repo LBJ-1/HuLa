@@ -71,7 +71,6 @@ jobs:
         with:
           workspaces: './src-tauri -> target'
 
-      # 只构建不发布
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
@@ -79,4 +78,11 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
-          releaseId: "debug-build" 
+          releaseId: "debug-build"
+
+      - name: Upload built app
+        uses: actions/upload-artifact@v4
+        with:
+          name: tauri-${{ inputs.platform }}-build
+          path: src-tauri/target/release/bundle/
+          retention-days: 3
