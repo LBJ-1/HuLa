@@ -66,19 +66,27 @@ jobs:
       #   if: runner.os == 'macOS' && runner.arch == 'ARM'
       #   run: softwareupdate --install-rosetta --agree-to-license
 
-      # 安装 Rust
+      # 安装 Rust 并添加 x86_64 目标
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
       - name: Add x86_64 Rust target
         run: rustup target add x86_64-apple-darwin
-        
+      
+      # Rust 缓存
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
 
-      - name: Build Tauri app
-        uses: tauri-apps/tauri-action@v0
+      # 构建并打包 Tauri x86_64 应用
+      # - name: Build Tauri app
+      #   uses: tauri-apps/tauri-action@v0
+      - name: Build macOS x86_64 Tauri App
+        if: inputs.platform == 'macos-latest'
+        run: |
+          rustup target add x86_64-apple-darwin
+          pnpm tauri build --target x86_64-apple-darwin
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
