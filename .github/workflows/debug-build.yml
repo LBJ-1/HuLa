@@ -99,5 +99,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tauri-${{ inputs.platform }}-build
-          path: src-tauri/target/release/bundle/*
+          # 备份 path: src-tauri/target/release/bundle/*
+          path: src-tauri/target/x86_64-apple-darwin/release/bundle/macos/**
           retention-days: 3
