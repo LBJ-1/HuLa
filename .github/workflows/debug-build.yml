@@ -87,13 +87,13 @@ jobs:
           rustup target add x86_64-apple-darwin
           pnpm tauri build --target x86_64-apple-darwin
 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
-        with:
-          args: "--target x86_64-apple-darwin"
-          releaseId: "debug-build"
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+        #   TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        # with:
+        #   args: "--target x86_64-apple-darwin"
+        #   releaseId: "debug-build"
 
       - name: Upload built app
         uses: actions/upload-artifact@v4
